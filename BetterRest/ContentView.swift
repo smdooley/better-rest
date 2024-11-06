@@ -51,7 +51,12 @@ struct ContentView: View {
                     
                     //Stepper("\(coffeeAmount) cup(s)", value: $coffeeAmount, in:1...20)
                     //Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cup(s)", value: $coffeeAmount, in: 1...20)
-                    Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 1...20)
+//                    Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 1...20)
+                    Picker("", selection: $coffeeAmount) {
+                        ForEach(1..<21) {
+                            Text($0, format: .number)
+                        }
+                    }
                 }
             }
             .navigationTitle("BetterRest")
